@@ -1,16 +1,16 @@
 const duplicateNumber = (input) => {
-    for(let i = 0; i < input.length; i++) {
-        let number = input[i];
-        if(number != i - 1) {
-            let extra = input[number - 1];
-            input[number - 1] = number;
-            input[i] = extra;
-        } else {
-            return number;
+    
+    let sorted = input.sort((a,b) => a-b);
+    let duplicates = [];
+
+    for(let i = 0; i < sorted.length; i++) {
+        if(sorted[i] == sorted[i+1] && i < sorted.length) {
+            duplicates.push(sorted[i]);
         }
     }
-    return input;
+
+    return duplicates;
 }
 
-const result = duplicateNumber([2, 6, 4, 3, 1, 5]);
-console.log(result);
+const result = duplicateNumber([3, 4, 4, 5, 5]);
+console.log(result); 
