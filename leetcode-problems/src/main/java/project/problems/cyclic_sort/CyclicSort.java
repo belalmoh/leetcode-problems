@@ -11,10 +11,13 @@ public class CyclicSort {
     }
 
     public static int[] sort(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            while (nums[i] != i + 1) {
-                swap(nums, i, nums[i] - 1);
-            }
+        int i = 0;
+        while (i < nums.length) {
+            int j = nums[i] - 1; // Calculate the index where the current element should be placed.
+            if (nums[i] != nums[j]) // Check if the current element is not in its correct position.
+                swap(nums, i, j); // Swap the current element with the one at its correct position.
+            else
+                i++; // If the current element is already in its correct position, move to the next element.
         }
         return nums;
     }
