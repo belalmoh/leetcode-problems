@@ -25,7 +25,7 @@ public class BalancedParanthesis {
             }
         }
 
-        return stack.size() == 0;
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
